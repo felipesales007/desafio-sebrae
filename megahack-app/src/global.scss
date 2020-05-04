@@ -1,0 +1,269 @@
+/*
+* App Global CSS
+* ----------------------------------------------------------------------------
+* Put style rules here that you want to apply globally. These styles are for
+* the entire app and not just one component. Additionally, this file can be
+* used as an entry point to import other CSS/Sass files to be included in the
+* output CSS.
+* For more information on global stylesheets, visit the documentation:
+* https://ionicframework.com/docs/layout/global-stylesheets
+*/
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/*
+* App Global CSS
+* ----------------------------------------------------------------------------
+* Put style rules here that you want to apply globally. These styles are for
+* the entire app and not just one component. Additionally, this file can be
+* used as an entry point to import other CSS/Sass files to be included in the
+* output CSS.
+* For more information on global stylesheets, visit the documentation:
+* https://ionicframework.com/docs/layout/global-stylesheets
+*/
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* You can add global styles to this file, and also import other style files */
+html * {
+  font-family: 'Open Sans', sans-serif!important;
+  --ion-default-font: "Open Sans", sans-serif;
+}
+.footer {
+  transition: all 0.3s ease-out;
+  font-size: 10px;
+  height: 55px;
+  padding: 2px!important;
+  margin: 0px!important;
+  z-index: 10000;
+  width: 100%;
+  bottom: 0;
+  margin-left: -15px;
+  padding: 15px!important;
+}
+
+.title-component, .title-dialog {
+  color: #212529;
+  font-size: 20px;
+  font-weight: 600;
+}
+.b-green {
+  background-color: #00ce92!important;
+}
+
+.b-red {
+  background-color: #ff345f!important;
+}
+
+.mb--15 {
+  margin-bottom: -15px!important;
+}
+
+.green {
+  color: #00ce92!important;
+}
+
+.red {
+  color: #ff345f!important;
+}
+
+.flex {
+  display: flex!important;
+}
+
+.flex-c {
+  flex-direction: column!important;
+}
+
+.table th, .table td {
+  padding: 0.6rem!important
+}
+
+
+.mat-dialog-container {
+  padding: unset!important;
+}
+
+.min-h {
+  min-height: 250px;
+}
+
+.bg-app-green {
+  background: #00ce92 !important;
+}
+.bg-app-red {
+  background: #ff345f !important;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+ion-picker {
+  touch-action: none;
+}
+// fiv-app-bar {
+  //   background: #00ce92 !important;
+  // }
+
+.cdk-overlay-pane {
+display: flex!important;
+justify-content: center!important;
+right: unset!important;
+width: 100%!important;
+margin-top: 15px;
+}
+
+.hide-footer {
+transition: all 0.3s ease-out;
+margin-bottom: -60px!important;
+}
+.fe-transition {
+-webkit-transition: all 0.6s ease-out;
+-moz-transition: all 0.6s ease-out;
+-o-transition: all 0.6s ease-out;
+-ms-transition: all 0.6s ease-out;
+transition: all 0.6s ease-out;
+}
+
+.btn-primary {
+background-color: #00ce92!important;
+border-color: #00ce92!important;
+}
+
+.btn-danger {
+background-color: #ff345f!important;
+border-color: #ff345f!important;
+}
+
+.mat-progress-spinner.mat-warn circle, .mat-spinner.mat-warn circle {
+stroke: #ff345f!important;
+}
+
+.mat-progress-spinner.mat-primary circle, .mat-spinner.mat-primary circle{
+stroke: #1F6EC7!important;
+}
+
+
+
+// .mat-progress-spinner circle, .mat-spinner circle {
+//   stroke: #ff345f !important;
+// }
+
+.tooltip-inner {
+  color: #19214d!important;
+  border: 1px solid #19204d!important;
+  background-color: #f8f9fe!important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0,0,0,.1)!important;;
+}
+
+.color-font-app{
+  color: #525f7f
+}
+
+.app-content {
+  padding: 10px!important;
+}
+
+.width-100 {
+  width: 100%!important;
+}
+
+.height-100 {
+  height: 100%!important;
+}
+
+.height-100vh {
+  height: 100vh!important;
+}
+
+.cdk-global-overlay-wrapper {
+  align-items: flex-end!important;
+}
+
+.border-icon {
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+
+.mat-form-field-infix {
+  border-top: unset!important;;
+}
+
+
+.tt-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ion-color-danger {
+  --ion-color-base: #ff345f !important;
+}
+
+.ion-color-success {
+  color: #f4f5f8;
+  --ion-color-base: #262852 !important;
+}
+
+
+.btn-app {
+  padding: 1px 6px !important;
+  opacity: 0.8;
+}
+
+.btn-inner--icon {
+  display: flex!important;
+  align-items: center;
+  padding: 3px 1px;
+}
+
+.navbar {
+  height: 41px;
+  padding: 0.1rem !important;
+  display: flex;
+  background-color: #1F6EC7;
+  z-index: 1111;
+  position: relative;
+}
+
+
+.admob {
+  height: 50px;
+  // background: #fff;
+}
+
+.with-ad {
+  border-bottom: 61px solid #f4f5f8;
+}

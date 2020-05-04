@@ -1,0 +1,57 @@
+/* mensagem */
+
+.messages {
+  width: 100%;
+  position: relative;
+}
+
+.messages-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 18px;
+  overflow-y: auto;
+}
+
+.messages-content .message {
+  position: relative;
+  float: left;
+  height: 85px;
+  max-width: 100%;
+  color: #4b4b4b;
+  font-size: 14.4px;
+  clear: both;
+}
+
+/* card pedido */
+
+.fe-card-pedido {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.fe-card-pedido:after {
+  content: none;
+}
+
+.fe-card-item {
+  height: 100px;
+  width: 100%;
+}
+
+.fe-card-pedido-imagem {
+  width: 50px;
+  height: 50px;
+  margin: 16px;
+  border-radius: 50%;
+  border: 1px solid #f2f2f2;
+}
+
+.fe-card-pedido-titulo,
+.fe-card-pedido-valor {
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+}

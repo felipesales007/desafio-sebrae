@@ -1,0 +1,16 @@
+<loading [showSpinner]="showSpinner"></loading>
+
+<div class="fe-chat fe-chat-ativo">
+    <div class="messages">
+        <div class="messages-content">
+            <div *ngFor="let establishment of establishments">
+                <a (click)="viewEstablishmentProduct(establishment.user.uuid)" class="message fe-card-pedido">
+                    <div class="fe-card-item">
+                        <img [src]="establishment.imageURL" class="fe-card-pedido-imagem" alt="imagem não carregada">
+                        <span class="fe-card-pedido-titulo">{{ establishment.name }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="bg-white login-info-content">
+    <span>{{ message }}</span>
+    <loading-login class="mt-2" [showSpinner]="showSpinner"></loading-login>
+    <img *ngIf="error" src="../../../assets/img/theme/danied.png" alt="">
+    <img *ngIf="!error" src="../../../assets/img/theme/confirm.png" alt="">
+    <button (click)="login()" *ngIf="error" type="button" class="btn btn-primary mt-2">
+        Tentar novamente
+    </button>
+    <button (click)="backToLogin()" *ngIf="error" type="button" class="btn btn-danger mt-4">
+        Voltar
+    </button>
+</div>

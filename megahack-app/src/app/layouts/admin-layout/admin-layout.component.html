@@ -1,0 +1,21 @@
+<ion-split-pane contentId="my-content">
+
+    <ion-tabs >
+        <ion-tab-bar  *ngIf="hasRole('ROLE_VENDEDOR')" slot="bottom">
+          <ion-tab-button tab="dashboard">
+            <ion-icon name="analytics-outline"></ion-icon>
+            <ion-label>Meu painel</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="home">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Início</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="bmg">
+          <img src="https://www.bancobmg.com.br/Site/Content/assets/img/logos/logo-bmg.svg" style="width: 50%; margin-top: 5px; height: 30px;" alt="">            
+          <ion-label style="font-size: 10px;">BMG pra você</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+</ion-split-pane>

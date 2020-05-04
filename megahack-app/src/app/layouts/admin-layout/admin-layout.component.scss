@@ -1,0 +1,16 @@
+::ng-deep #my-content .tab.active {
+   --fiv-color-icon: #191c4d!important;
+   
+}
+
+::ng-deep #my-content ion-fab ion-button {
+   --background: #00ce92!important;
+   --background-activated: #00ce92!important;
+   --background-focused: #00ce92!important;
+   --background-hover: #00ce92!important;
+}
+
+::ng-deep #my-content .appbar {
+   position: relative!important;
+   
+ }

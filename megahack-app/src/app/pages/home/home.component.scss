@@ -1,0 +1,26 @@
+.navbar-text {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  z-index: -1;
+}
+
+.navbar ion-segment {
+  background: #1F6EC7;
+  bottom: -1px;
+  padding-top: 5px;
+  border-radius: 0;
+}
+
+.segment-button-checked {
+  --border-radius: 0;
+  --indicator-box-shadow: none;
+  --indicator-color: transparent;
+  border-bottom: 5px solid white;
+  margin-bottom: -2px;
+}

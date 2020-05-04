@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand" >
+  <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100px; opacity: .1; right: 75px;" alt="">
+  <div class="collapse navbar-collapse">
+    <ion-buttons slot="start">
+      <ion-menu-button class="text-white"></ion-menu-button>
+    </ion-buttons>
+    <span class="text-white text-lg d-inline-block ml-3 font-weight-bold">{{title}}</span>
+    <!-- Navbar links -->
+    <!-- User -->
+    <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+      <li class="nav-item dropdown" dropdown placement="bottom-right">
+        <a dropdownToggle>
+          <div class="media align-items-center mr-2-5" >
+            <ion-icon name="ellipsis-vertical-outline" class="text-white" style="font-size: 19px;"></ion-icon>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" *dropdownMenu>
+          <div class=" dropdown-header noti-title">
+            <span class="text-overflow m-0">Olá {{ name }}</span>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a (click)="openAlertLogout()" class="dropdown-item">
+            <ion-icon name="exit-outline" class="red"></ion-icon><span class="ml-1">Sair</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+

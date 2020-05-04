@@ -1,0 +1,95 @@
+<div class="register main-content">
+    <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100%; height: 100%; opacity: .1;"
+         alt="">
+         <div class="flex justify-content-center pb-2">
+            <img [src]="'assets/img/theme/logo.png'" width="50%" alt="">
+        </div>
+    <div>
+        <span class="py-1 font-weight-bolder text-white">Seja bem vindo(a)</span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class=" card bg-white">
+                    <div class="card-body">
+                        <form class="width-100" autocomplete="off" (ngSubmit)="onSubmit(frm)" #frm="ngForm">
+                            <label class="font-weight-bold">nome <span class="red">*</span></label>
+                            <mat-form-field class="width-100  text-lg">
+                                <input matInput required type="text" name="name" [(ngModel)]="userRequest.name"
+                                       #name="ngModel">
+                                <mat-error>
+                                    <error-form-message [frm]="name" label="nome"></error-form-message>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <label class="font-weight-bold">email <span class="red">*</span></label>
+                            <mat-form-field class="width-100  text-lg">
+                                <input email matInput required type="text" name="email" [(ngModel)]="userRequest.email"
+                                       #email="ngModel">
+                                <mat-error>
+                                    <error-form-message [frm]="email" label="email"></error-form-message>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <label class="font-weight-bold">senha <span class="red">*</span></label>
+                            <mat-form-field class="width-100  text-lg">
+                                <input matInput (change)="clearConfirme()" confirmPassword minlength="6" required
+                                       [type]="hide ? 'password' : 'text'" name="password"
+                                       [(ngModel)]="userRequest.password" #password="ngModel">
+                                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <ion-icon name="{{hide==true ? 'eye' : 'eye-off'}}"></ion-icon>
+                                </button>
+                                <mat-error>
+                                    <error-form-message [frm]="password" label="senha"></error-form-message>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <label class="font-weight-bold">confirme a senha <span class="red">*</span></label>
+                            <mat-form-field class="width-100  text-lg">
+                                <input confirmPassword matInput required minlength="6"
+                                       [type]="hide ? 'password' : 'text'" name="confirmPassword"
+                                       [(ngModel)]="userRequest.confirmPassword" #confirmPassword="ngModel">
+                                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <ion-icon name="{{hide==true ? 'eye' : 'eye-off'}}"></ion-icon>
+                                </button>
+                                <mat-error>
+                                    <error-form-message [frm]="confirmPassword"
+                                                        label="confirme a senha"></error-form-message>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <div class="radio-style">
+                                <label>
+                                    <input type="radio" class="option-input radio" name="perfil" value="Comprador" checked>
+                                    Comprar
+                                </label>
+                                <label>
+                                    <input type="radio" class="option-input radio" name="perfil" value="Vendedor">
+                                    Vender
+                                </label>
+                                <label>
+                                    <input type="radio" class="option-input radio" name="perfil" value="Entregador">
+                                    Entregar
+                                </label>
+                            </div>
+
+                            <div class="my-4 btn-register">
+                                <button type="submit" class="btn btn-primary">Registrar-me</button>
+                            </div>
+
+                            <div (click)="backToLogin()" class="btn-register">
+                                <button type="button" class="btn btn-danger">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

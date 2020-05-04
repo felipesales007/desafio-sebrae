@@ -1,0 +1,19 @@
+<loading [showSpinner]="showSpinner"></loading>
+
+<div class="fe-chat fe-chat-ativo">
+  <div class="messages">
+      <div class="messages-content">
+          <div>
+            <a *ngFor="let product of products" class="message fe-card-pedido">
+                  <div class="fe-card-item">
+                      <ion-icon name="close-circle-outline" class="btn-close" (click)="disabledProduct(product.id)"></ion-icon>
+                      <img [src]="product.imageURL" class="fe-card-pedido-imagem" alt="Sem imagem">
+                      <span class="fe-card-pedido-titulo">{{ product.name }}</span>
+                      <span class="fe-card-pedido-descricao">{{ product.description }}</span>
+                      <span class="fe-card-pedido-tempo">{{ product.type }} • <span>R$ {{ product.price }}</span></span>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>

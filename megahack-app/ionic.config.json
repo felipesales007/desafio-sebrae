@@ -1,0 +1,8 @@
+{
+  "name": "Comida de Rua",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

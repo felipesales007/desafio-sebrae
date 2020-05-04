@@ -1,0 +1,12 @@
+<div class="fe-chat fe-chat-ativo">
+    <ion-list *ngFor="let deliveryOrder of deliveryOrders">
+        <ion-item>
+            <ion-label>
+                <p><b>De:</b> {{deliveryOrder.from}}</p>
+                <p><b>Para:</b>{{deliveryOrder.to}}</p>
+                <p><b>Usuário:</b>{{deliveryOrder.receivingUser}}</p>
+                <ion-button (click)="accepted(deliveryOrder)" class="ion-float-right" size="small">Entregar</ion-button>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</div>

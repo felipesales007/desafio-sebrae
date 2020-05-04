@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<nav class="navbar navbar-expand">
+    <div class="width-100">
+        <ion-segment mode="ios" style="--ion-color-step-350: #fff;" [value]="value" (ionChange)="segmentChanged($event)">
+            <ion-segment-button  *ngIf="hasRole('ROLE_USER')" value="buscar">
+                <span class="navbar-text">buscar</span>
+            </ion-segment-button>
+            <ion-segment-button *ngIf="!hasRole('ROLE_ENTREGADOR')" value="chat">
+                <span class="navbar-text">chat</span>
+            </ion-segment-button>
+            <ion-segment-button *ngIf="hasRole('ROLE_VENDEDOR')" value="alguma">
+                <span class="navbar-text">produtos</span>
+            </ion-segment-button>
+            <ion-segment-button *ngIf="hasRole('ROLE_ENTREGADOR')" value="acompanhar">
+                <span class="navbar-text">Realizadas</span>
+            </ion-segment-button>
+            <ion-segment-button *ngIf="hasRole('ROLE_ENTREGADOR')" value="entrega">
+                <span class="navbar-text">disponíveis</span>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+</nav>
+<ion-content>
+    <div [(ngSwitch)]="segment">
+        <div *ngSwitchCase="'buscar'">
+            <establishment-list></establishment-list>
+        </div>
+        <div *ngSwitchCase="'chat'">
+            <chat-list></chat-list>
+        </div>
+        <div *ngSwitchCase="'alguma'">
+            <products></products>
+        </div>
+        <div *ngSwitchCase="'acompanhar'">
+            <order-map></order-map>
+        </div>
+        <div *ngSwitchCase="'entrega'">
+            <order-delivey></order-delivey>
+        </div>
+    </div>
+</ion-content>
+

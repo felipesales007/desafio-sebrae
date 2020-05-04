@@ -1,0 +1,20 @@
+.navbar .dropdown-menu-right:before {
+   right: 15px!important;
+}
+
+.avatar {
+   background: #fff;
+}
+
+.avatar img {
+   background: #fff;
+}
+
+.navbar:not(.navbar-nav-hover) .dropdown-menu.show {
+   margin-right: 8px;
+   margin-top: 5px;
+}
+
+.mr-2-5 {
+   margin-right: 0.7rem !important;
+}

@@ -1,0 +1,35 @@
+.message {
+  display: flex;
+  justify-content: center;
+  color: #f4355c;
+  font-weight: bold;
+}
+
+.hide-password::-webkit-outer-spin-button,
+.hide-password::-webkit-inner-spin-button {
+  display: none;
+}
+
+.hide-password {
+  -moz-appearance: textfield !important;
+}
+
+.card {
+  background-color: #fff !important;
+}
+
+.fe-center-y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-primary {
+  background-color: #1F6EC7 !important;
+  border-color: #1F6EC7 !important;
+}
+
+.main-content {
+  background-color: #1F6EC7;
+  height: 100%;
+}

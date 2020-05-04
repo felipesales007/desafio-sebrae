@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand" style="height: 50px;">
+    <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100px; opacity: .1; right: 75px;" alt="">
+
+    <div style="font-size: 25px;" class="mx-2 text-white flex aling-items-center">
+        <ion-icon (click)="closeModal()" name="arrow-back" style="margin-top: 4px;"></ion-icon>
+        <img [src]="order.establishment.imageURL ? order.establishment.imageURL : 'assets/img/theme/imag-covid.jpg'" class="fe-margin-left-16 fe-center-y fe-circulo-contato mt-2-5" alt="">
+        <div class="fe-lista-contato-nome">Pedido - {{order.establishment.name}}</div>
+    </div>
+</nav>
+
+<div class="fe-chat fe-chat-ativo">
+    <br><br>
+    <loading [showSpinner]="showSpinner"></loading>
+    <div class="messages">
+        <div id="scroll_abaixo" class="messages-content">
+            <!-- local de entrega -->
+            <div class="endereco">
+                <div>Entregar em</div>
+                <div>Casa</div>
+                <div class="font-weight-bold">Rua Varandas da Serra, 85</div>
+                <div class="fs-12">
+                    <div>Apartamento 301, Bloco 10</div>
+                    <div>Depois da clinica Bom sucesso</div>
+                </div>
+            </div>
+
+            <!-- card -->
+            <div>
+                <div  *ngIf="orderId==null">
+                    <a class="message fe-card-pedido" *ngFor="let item of order.orderItems">
+                        <div class="fe-card-item">
+                            <img [src]="item.imageURL ? item.imageURL :  'assets/img/theme/torta.jpg'" class="fe-card-pedido-imagem" alt="">
+                            <ion-icon name="close-circle-outline" class="btn-close" (click)="removeItem(item.id)"></ion-icon>
+                            <span class="fe-card-pedido-titulo">{{item.name}}</span>
+                            <span class="fe-card-pedido-descricao">{{item.description}}</span>
+                            <span class="fe-card-pedido-valor">R$ {{item.price | number:'1.2-2' }}</span>
+                        </div>
+                    </a>
+                </div>
+               
+                <div *ngIf="orderId!=null">
+                    <a class="message fe-card-pedido" *ngFor="let item of order.orderItems" >
+                        <div class="fe-card-item">
+                            <img [src]="item.product.imageURL ? item.product.imageURL :  'assets/img/theme/torta.jpg'" class="fe-card-pedido-imagem" alt="">
+                            <ion-icon name="close-circle-outline" class="btn-close" (click)="removeItem(item.id)"></ion-icon>
+                            <span class="fe-card-pedido-titulo">{{item.product.name}}</span>
+                            <span class="fe-card-pedido-descricao">{{item.product.description}}</span>
+                            <span class="fe-card-pedido-valor">R$ {{item.product.price | number:'1.2-2' }}</span>
+                        </div>
+                    </a>
+    
+                </div>
+                
+                <div *ngIf="orderId==null">
+                    <!--<span>aqui uma imagem do cartao</span> <a (click)="changePayment()">selecionar</a>-->
+                    <ul class="payment-methods payment-methods bg-white width-100 flex justify-content-center mb-1">
+                        <li class="payment-method mastercad">
+                            <input name="payment_methods" type="radio" id="mastercad">
+                            <label for="mastercad">mastercad</label>
+                        </li>
+
+                        <li class="payment-method paypal">
+                            <input name="payment_methods" type="radio" id="paypal">
+                            <label for="paypal">PayPal</label>
+                        </li>
+
+                        <li class="payment-method bankslip">
+                            <input name="payment_methods" type="radio" id="bankslip">
+                            <label for="bankslip">Boleto</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="div-preco">
+                    <div>
+                        <span>Subtotal</span>
+                        <span class="fe-card-pedido-total ion-float-right">R$ {{subTotal | number:'1.2-2'}}</span>
+                    </div>
+                    <div>
+                        <span>Entrega</span>
+                        <span class="fe-card-pedido-total ion-float-right">R$ 5,99</span>
+                    </div>
+                    <div>
+                        <span class="font-weight-bold">Total</span>
+                        <span class="fe-card-pedido-total font-weight-bold ion-float-right">R$ {{total | number:'1.2-2'}}</span>
+                    </div>
+                </div>
+            </div>
+            <span *ngIf="!hasRole('ROLE_VENDEDOR')"  class="div-buttom" (click)=send()>
+                <button *ngIf="orderId==null" [disabled]="order.orderItems.length==0" class="btn-pagamento">Fazer pedido</button>
+                <button *ngIf="orderId!=null"  [disabled]="order.orderItems.length==0" class="btn-pagamento">refazer pedido</button>
+            </span>
+        </div>
+    </div>
+</div>

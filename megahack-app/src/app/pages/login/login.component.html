@@ -1,0 +1,71 @@
+<div class="main-content">
+    <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100%; height: 100%; opacity: .1;" alt="">
+
+    <div class="container fe-center-y">
+        <div class="flex justify-content-center pb-2">
+            <img [src]="'assets/img/theme/logo.png'" width="50%" alt="">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form class="ngForm" (ngSubmit)="submit()" #frm="ngForm" role="form">
+                    <div class="card bg-secondary border-0 mb-0">
+                        <div class="ion-text-center card-header bg-transparent pb-3">
+                            <span class="font-weight-bolder">Entrar</span>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="message text-xs">{{message}}</div>
+                            <div class="mb--1 tt-row">
+                                <label class="font-weight-bold">email</label>
+                                <mat-form-field class="width-100 text-lg">
+                                    <input email matInput required name="email" [(ngModel)]="login.email" #email="ngModel">
+                                </mat-form-field>
+
+                                <label class="font-weight-bold">senha</label>
+                                <mat-form-field class="width-100 text-lg">
+                                    <input matInput required [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="login.password" #password="ngModel">
+                                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <ion-icon name="{{hide==true ? 'eye' : 'eye-off'}}"></ion-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="text-center">
+                                <button [disabled]="!frm.valid" class="width-100 btn btn-primary">Entrar com credenciais</button>
+                            </div>
+
+                            <div class="width-100 ion-text-center py-2">
+                                <span class="font-weight-bolder">ou</span>
+                            </div>
+
+                            <div class="width-100 btn-wrapper text-center">
+                                <a (click)="loginWithGoogle()" class=" btn btn-neutral btn-icon width-100 flex justify-content-center">
+                                    <span class=" btn-inner--icon">
+                                      <img src="assets/img/icons/common/google.svg"/>
+                                      <span class=" btn-inner--text">Entrar com conta Google</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" row mt-2">
+                        <div class=" col-6">
+                            <a class=" text-light">
+                                <span>Esqueci minha senha</span>
+                            </a>
+                        </div>
+
+                        <div class=" col-6 text-right">
+                            <a class=" text-light" (click)="registration()">
+                                <span>Registrar-me</span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

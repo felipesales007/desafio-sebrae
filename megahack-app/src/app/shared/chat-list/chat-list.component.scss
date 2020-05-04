@@ -1,0 +1,115 @@
+.fe-font {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", Arial, "Ubuntu", "Cantarell", "Fira Sans", sans-serif;
+}
+
+.fe-lista-contato {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  cursor: pointer;
+  border-bottom-left-radius: 3px;
+}
+
+.fe-circulo-contato {
+  width: 48.5px;
+  height: 48.9px;
+  border-radius: 25px;
+}
+
+.fe-lista-contato-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 71px;
+  margin-bottom: 1px;
+}
+
+.fe-lista-contato-item:hover {
+  background-color: #f4f5f5;
+}
+
+.fe-contato-ativo {
+  background-color: #e9ebeb !important;
+  height: 71px;
+}
+
+.fe-lista-contato-item:after {
+  position: absolute;
+  width: 77%;
+  content: '';
+  border-top: 1px solid #f2f2f2;
+  top: -1px;
+  right: 20px;
+  opacity: .9;
+}
+
+.fe-lista-contato-item img {
+  margin-top: -1.7px;
+  margin-left: 13px;
+}
+
+.fe-lista-contato-nome {
+  position: absolute;
+  display: flex;
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin-top: -34px;
+  margin-left: 77px;
+  color: #000000;
+  opacity: .95;
+}
+
+.fe-lista-contato-hora {
+  margin-top: 17.5px;
+  margin-right: 20px;
+  color: #929393;
+  font-size: 11.5px;
+  letter-spacing: 0.4px;
+  font-weight: 300;
+  opacity: .9;
+}
+
+.fe-lista-contato-resumo {
+  position: absolute;
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01px;
+  margin-top: -9px;
+  margin-left: 77px;
+  color: #626262;
+  opacity: .9;
+}
+
+.fe-margin-left-16 {
+  margin-left: 16px;
+}
+
+.fe-right {
+  float: right;
+}
+
+.fe-center-y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fe-lista-contato-notificacao {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: white;
+  padding: 2px 4px 2px 4px;
+  background-color: #34D260;
+  border-radius: 50%;
+  opacity: .8;
+}

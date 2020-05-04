@@ -1,0 +1,172 @@
+<nav class="navbar navbar-expand" style="height: 50px;">
+    <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100px; opacity: .1; right: 75px;" alt="">
+
+    <div style="font-size: 25px;" class="mx-2 text-white flex aling-items-center">
+        <ion-icon (click)="back()" name="arrow-back" style="margin-top: 4px;"></ion-icon>
+
+        <img *ngIf="hasRole('ROLE_VENDEDOR')" [src]="user.picture ? user.picture : 'assets/img/theme/imag-covid.jpg'" class="fe-margin-left-16 fe-center-y fe-circulo-contato mt-2-5" alt="">
+        <img *ngIf="hasRole('ROLE_USER')" [src]="establishment.imageURL ? establishment.imageURL : 'assets/img/theme/imag-covid.jpg'" class="fe-margin-left-16 fe-center-y fe-circulo-contato mt-2-5" alt="">
+        <div *ngIf="hasRole('ROLE_VENDEDOR')" class="fe-lista-contato-nome">{{ user.name }}</div>
+        <div *ngIf="hasRole('ROLE_USER')" class="fe-lista-contato-nome">{{ establishment.name }}</div>
+        <div class="fe-lista-contato-resumo">19:30</div>
+    </div>
+
+    <ion-icon *ngIf="hasRole('ROLE_USER')" name="basket-outline" class="fe-btn-pedido" (click)="openPageProducts(establishment.id)"></ion-icon>
+</nav>
+
+
+<!-- chat ativo -->
+<div class="fe-chat fe-chat-ativo">
+    <br><br>
+    <!-- mensagens -->
+    <div class="messages">
+        <div id="scroll_abaixo" class="messages-content">
+            <!-- repetição client /  user personal timestamp -->
+            <!-- mensagem -->
+            <div *ngFor="let map of messages | keyvalue:originalOrder">
+                <div class="message transfer">
+                    <div class="message-text">{{ map.key | dateTable}}</div>
+                </div>
+
+                <div *ngFor="let message of map.value">
+
+                    <div *ngIf="message.chatType == 'CHAT'" class="message " [ngClass]="message | isMe:'message'">
+                        {{ message.message }}
+                        <div class="timestamp">10:01</div>
+                        <div class="metadata" *ngIf="message | isMe:'view'">
+                            <!-- não enviado -->
+                            <div class="tick fe-hide">
+                                <img [src]="'assets/img/theme/relogio.png'" class="reloginho" alt="">
+                            </div>
+                            <!-- enviado -->
+                            <div class="tick fe-hide">
+                                <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                                    <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 0-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                                </svg>
+                            </div>
+                            <!-- enviado e entregue -->
+                            <div class="tick fe-hide">
+                                <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                                    <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                                </svg>
+                            </div>
+                            <!-- enviado, entregue e visto -->
+                            <div class="tick">
+                                <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                                    <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="message.chatType == 'ORDER'"  class="message fe-card-pedido" [ngClass]="message | isMe">
+                        <div class="fe-card-item">
+                            <img [src]="'assets/img/theme/imag-covid.jpg'" class="fe-card-pedido-imagem" alt="imagem não carregada">
+                            <span class="fe-card-pedido-titulo">Pedido #{{message.message}}</span>
+                            <span class="fe-card-timestamp">{{ message.dateTime | dateTable }} - {{ message.dateTime | date:'HH:mm'}}</span>
+                        </div>
+
+                        <div class="mt-2">
+                            <span class="font-weight-bold"></span>
+                        </div>
+
+                        <hr class="hr">
+
+                        <a href="javascript:void(0)" (click)="openOrder(message.message)" class="font-weight-bold">
+                            <ion-icon name="search-outline"></ion-icon>
+                            Ver detalhes
+                        </a>
+                        <a href="javascript:void(0)" class="font-weight-bold ion-float-right">
+                            <ion-icon name="cash-outline"></ion-icon>
+                            R$ {{message.value | number:'1.2-2'}}
+                        </a>
+                    </div>
+
+
+                     <!-- <div class="message user personal timestamp" >
+                       <img src="https://cdn.motor1.com/images/mgl/1BN89/s3/2018-volvo-xc40.jpg" class="materialboxed" alt="imagem não carregada">
+                        Carro bonito né?
+                        <div class="timestamp">10:00</div>
+                        <div class="metadata">
+                            <div class="tick">
+                                <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                                    <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+
+
+
+
+            <!-- card -->
+
+
+            <!-- <div class="message user personal">
+                :D É sim, é seu?
+                <div class="timestamp">10:09</div>
+                <div class="metadata">
+                    <div class="tick fe-hide">
+                        <img [src]="'assets/img/theme/relogio.png'" class="reloginho" alt="">
+                    </div>
+                    <div class="tick fe-hide">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 0-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                        </svg>
+                    </div>
+                    <div class="tick fe-hide">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                        </svg>
+                    </div>
+                    <div class="tick">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- <div class="message user personal timestamp">
+                <img src="https://cdn.motor1.com/images/mgl/1BN89/s3/2018-volvo-xc40.jpg" class="materialboxed" alt="imagem não carregada">
+                Carro bonito né?
+                <div class="timestamp">10:00</div>
+                <div class="metadata">
+
+                    <div class="tick fe-hide">
+                        <img [src]="'assets/img/theme/relogio.png'" class="reloginho" alt="">
+                    </div>
+
+                    <div class="tick fe-hide">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 0-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                        </svg>
+                    </div>
+
+                    <div class="tick fe-hide">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/>
+                        </svg>
+                    </div>
+
+                    <div class="tick">
+                        <svg width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div  class="fe-chat-box">
+            <textarea class="fe-textarea-chat-texto fe-center-y" [(ngModel)]="message" placeholder="Digite uma mensagem"></textarea>
+            <ion-icon (click)="send()" name="send-outline" class="fe-chat-send"></ion-icon>
+        </div>
+    </div>
+</div>
+

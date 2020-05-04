@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand" style="height: 50px;">
+    <img [src]="'assets/img/theme/lista.png'" style="position: absolute; width: 100px; opacity: .1; right: 75px;" alt="">
+
+    <div style="font-size: 25px;" class="mx-2 text-white flex aling-items-center">
+        <ion-icon (click)="back()" name="arrow-back" style="margin-top: 4px;"></ion-icon>
+        <img [src]="establishment.imageURL ? establishment.imageURL : 'assets/img/theme/imag-covid.jpg'" class="fe-margin-left-16 fe-center-y fe-circulo-contato mt-2-5" alt="">
+        <div class="fe-lista-contato-nome">{{establishment.name}}</div>
+        <div class="fe-lista-contato-resumo">19:30</div>
+    </div>
+</nav>
+
+<div class="fe-chat fe-chat-ativo">
+    <br><br>
+    <loading [showSpinner]="showSpinner"></loading>
+    <!-- mensagens -->
+    <div class="messages">
+        <div id="scroll_abaixo" class="messages-content">
+            <!-- card -->
+            <div *ngFor="let product of products">
+                <a href="javascript:void(0)" class="message fe-card-pedido" (click)="openModalDetail(product)">
+                    <div class="fe-card-item">
+                        <img [src]="product.imageURL ? product.imageURL : 'assets/img/theme/torta.jpg'" class="fe-card-pedido-imagem" alt="imagem não carregada">
+                        <span class="fe-card-pedido-titulo">{{product.name}}</span>
+                        <span class="fe-card-pedido-descricao">{{product.description}}</span>
+                        <span class="fe-card-pedido-valor">R$ {{product.price | number:'1.2-2'}}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

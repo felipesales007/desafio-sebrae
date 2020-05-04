@@ -1,0 +1,258 @@
+.fe-circulo-contato {
+  width: 33px;
+  height: 33px;
+  border-radius: 25px;
+}
+
+.fe-lista-contato-nome {
+  position: absolute;
+  display: flex;
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin-top: 5px;
+  margin-left: 70px;
+  color: #ffffff;
+  opacity: .95;
+}
+
+/* ---------------------
+ * Estilos do chat ativo
+/* --------------------- */
+
+.fe-chat {
+  width: 100%;
+  height: 100%;
+  margin-top: -160px;
+}
+
+.fe-chat-box {
+  position: absolute;
+  width: 100%;
+  height: 62px;
+  padding: 10px 0 0 15px;
+  bottom: 15px;
+}
+
+/* mensagem */
+
+.messages {
+  width: 100%;
+  height: calc(100% - 40px);
+  background-color: #F5F1EE;
+}
+
+.messages-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 9px;
+  padding-bottom: 18px;
+  overflow-y: auto;
+}
+
+.messages-content .message {
+  position: relative;
+  float: left;
+  max-width: 100%;
+  color: #4b4b4b;
+  font-size: 14.4px;
+  padding: 8px;
+  clear: both;
+  margin-bottom: 4px;
+}
+
+/* card pedido */
+
+.fe-card-pedido {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.fe-card-pedido:after {
+  content: none;
+}
+
+.fe-card-item {
+  height: 100px;
+  width: 100%;
+}
+
+.fe-card-pedido-imagem {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.fe-card-pedido-titulo {
+  top: 0;
+}
+
+.fe-card-pedido-titulo,
+.fe-card-pedido-valor {
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.fe-card-pedido-descricao {
+  position: absolute;
+  top: 30px;
+  font-size: 11px;
+  padding: 10px;
+  color: #8f8f8f;
+}
+
+.fe-card-pedido-valor {
+  color: #34D260;
+  bottom: 5px;
+  right: 0;
+}
+
+.fe-card-pedido-total {
+  color: #34D260;
+}
+
+.btn-close {
+  position: absolute;
+  right: 10px;
+  color: red;
+  width: 20px;
+  height: 20px;
+}
+
+.btn-close:hover {
+  opacity: .8;
+}
+
+/* sacola */
+
+.endereco {
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.div-quant {
+  border-top: 1px solid #f2f2f2;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.div-qunat-n {
+  position: relative;
+  float: right;
+  top: -3px;
+}
+
+.btn-quant-mais,
+.btn-quant-menos {
+  background-color: #1F6EC7;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 4px 5px 1px 5px;
+}
+
+.div-preco {
+  background-color: white;
+  border-top: 1px solid #f2f2f2;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.div-buttom {
+  padding: 15px;
+  top: 1px;
+  bottom: 15px;
+  position: relative;
+  display: flex;
+}
+
+.btn-pagamento {
+  position: relative;
+  background-color: #1F6EC7;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+}
+
+/* cartao */
+
+.div-pagamento {
+}
+
+.payment-methods {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 3px;
+}
+
+.payment-methods:after {
+  content: "";
+  clear: both;
+}
+
+.payment-method {
+  box-sizing: border-box;
+  float: left;
+  height: 40px;
+  position: relative;
+  width: 60px;
+}
+
+.payment-method + .payment-method {
+  margin-left: 25px;
+}
+
+.payment-method label {
+  background: #fff no-repeat center center;
+  bottom: 1px;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  text-indent: 100%;
+  top: 1px;
+  white-space: nowrap;
+}
+
+
+
+.payment-methods input:focus + label {
+  outline: 2px dotted #1F6EC7;
+}
+
+.payment-methods input:checked + label {
+  outline: 4px solid #1F6EC7;
+}
+
+.payment-methods input:checked + label:after {
+  background: url(../../../assets/img/theme/checked.png) no-repeat;
+  bottom: -5px;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  width: 20px;
+  background-size: contain;
+}
+
+@-moz-document url-prefix() {
+  .payment-methods input:checked + label:after {
+    bottom: 0;
+    right: 0;
+    background-color: #1F6EC7;
+  }
+}

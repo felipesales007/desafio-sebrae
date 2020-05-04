@@ -1,0 +1,17 @@
+.inner-scroll {
+  background-color: red !important;
+}
+
+ion-app.platform-ios12 ion-content {
+  pointer-events: auto !important;
+}
+
+.footer {
+  padding: 0px;
+  margin: 0px !important;
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  bottom: 0;
+  margin-left: -15px;
+}
