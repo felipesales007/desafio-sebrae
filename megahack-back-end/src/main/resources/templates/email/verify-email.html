@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:remove="all">Order Confirmation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>
+		Confirmacao de email
+	</h1>
+	<p>
+		Olá <span th:text="${user.name}"></span>
+	</p>
+	<p>
+		Confirme seu e-mail
+	</p>
+	<p>
+		<a th:href="@{${yourMoneyUi} + '/#/verificacao?token=' + ${token}}">Clique aqui</a>
+	</p>
+</body>
+</html>
